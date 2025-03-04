@@ -7,6 +7,7 @@ import {
 	Text,
 } from '@mantine/core'
 import { useState } from 'react'
+import { IconComponents } from '@tabler/icons-react'
 
 const usersData: Record<string, { image: string; email: string }> = {
 	'AMD Ryzen 9 9950x3D': {
@@ -47,12 +48,21 @@ const renderAutocompleteOption: AutocompleteProps['renderOption'] = ({
 
 export default function AutoComplete() {
 	const [value, setValue] = useState('')
+	const icon = <IconComponents size={16} />
 	return (
 		<div>
 			value : {value}
 			<Autocomplete
+				size='md'
+				radius='sm'
+				leftSectionPointerEvents='none'
+				description='Input description'
+				error='pilih dulu'
+				leftSection={icon}
 				comboboxProps={{
 					transitionProps: { transition: 'pop', duration: 200 },
+					dropdownPadding: 10,
+					shadow: 'md',
 				}}
 				clearable
 				value={value}

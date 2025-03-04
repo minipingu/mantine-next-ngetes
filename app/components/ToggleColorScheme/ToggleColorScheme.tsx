@@ -8,7 +8,7 @@ import { IconSun, IconMoon } from '@tabler/icons-react'
 import cx from 'clsx'
 import classes from './Demo.module.css'
 
-export default function Demo() {
+export default function ToggleColorScheme() {
 	const { setColorScheme } = useMantineColorScheme()
 	const computedColorScheme = useComputedColorScheme('light', {
 		getInitialValueInEffect: true,
