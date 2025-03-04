@@ -6,6 +6,7 @@ import {
 	Group,
 	Text,
 } from '@mantine/core'
+import { useState } from 'react'
 
 const usersData: Record<string, { image: string; email: string }> = {
 	'AMD Ryzen 9 9950x3D': {
@@ -45,24 +46,30 @@ const renderAutocompleteOption: AutocompleteProps['renderOption'] = ({
 )
 
 export default function AutoComplete() {
+	const [value, setValue] = useState('')
 	return (
-		<Autocomplete
-			data={[
-				{
-					group: 'Frontend',
-					items: ['AMD Ryzen 9 9950x3D', 'Ava Rodriguez'],
-				},
-				{
-					group: 'Backend',
-					items: ['Olivia Chen', 'Ethan Barnes', 'Mason Taylor'],
-				},
-			]}
-			renderOption={renderAutocompleteOption}
-			//maxDropdownHeight={100}
-			label='Employee of the month'
-			placeholder='Search for employee'
-			withScrollArea={false}
-			styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
-		/>
+		<div>
+			value : {value}
+			<Autocomplete
+				value={value}
+				onChange={setValue}
+				data={[
+					{
+						group: 'Frontend',
+						items: ['AMD Ryzen 9 9950x3D', 'Ava Rodriguez'],
+					},
+					{
+						group: 'Backend',
+						items: ['Olivia Chen', 'Ethan Barnes', 'Mason Taylor'],
+					},
+				]}
+				renderOption={renderAutocompleteOption}
+				//maxDropdownHeight={100}
+				label='Employee of the month'
+				placeholder='Search for employee'
+				withScrollArea={false}
+				styles={{ dropdown: { maxHeight: 200, overflowY: 'auto' } }}
+			/>
+		</div>
 	)
 }
