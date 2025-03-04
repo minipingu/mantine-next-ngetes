@@ -12,6 +12,7 @@ import {
 	ActionIcon,
 } from '@mantine/core'
 import { IconX } from '@tabler/icons-react'
+import formatCurrencyString from '../utils/formatCurrency'
 
 interface Item {
 	emoji: string
@@ -23,22 +24,22 @@ const groceries: Item[] = [
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
 		value: 'AMD Ryzen 7 7800X3D ',
-		price: 'Rp3.000.000,-',
+		price: '334534534',
 	},
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
 		value: 'AMD Ryzen 5 7800X3D ',
-		price: 'Rp3.000.000,-',
+		price: '123123342',
 	},
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
 		value: 'AMD Ryzen 1 7800X3D ',
-		price: 'Rp3.000.000,-',
+		price: '5235235',
 	},
 	{
 		emoji: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png',
 		value: 'Carrots',
-		price: 'Rp1.000.000,-',
+		price: '456456',
 	},
 ]
 
@@ -51,7 +52,7 @@ function SelectOption({ emoji, value, price }: Item) {
 					{value}
 				</Text>
 				<Text fz='xs' opacity={0.6}>
-					{price}
+					{formatCurrencyString(price)}
 				</Text>
 			</div>
 		</Group>
