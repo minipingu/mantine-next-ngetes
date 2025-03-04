@@ -51,6 +51,10 @@ export default function AutoComplete() {
 		<div>
 			value : {value}
 			<Autocomplete
+				comboboxProps={{
+					transitionProps: { transition: 'pop', duration: 200 },
+				}}
+				clearable
 				value={value}
 				onChange={setValue}
 				data={[
