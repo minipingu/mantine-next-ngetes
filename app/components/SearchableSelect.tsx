@@ -10,6 +10,7 @@ import {
 	TextInput,
 	useCombobox,
 	ActionIcon,
+	useMantineColorScheme,
 } from '@mantine/core'
 import { IconX } from '@tabler/icons-react'
 import formatCurrencyString from '../utils/formatCurrency'
@@ -23,43 +24,44 @@ interface Item {
 const groceries: Item[] = [
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
-		value: 'AMD Ryzen 7 7800X3D ',
+		value: 'AMD Ryzen 9 9950X3Dehhhhhhhh ',
 		price: '334534534',
 	},
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
-		value: 'AMD Ryzen 5 7800X3D ',
+		value: 'AMD Ryzen 7 9800X3Dehhhhhhhhhh ',
 		price: '123123342',
 	},
 	{
 		emoji: 'https://negroup.co.id/cni-content/uploads/modules/product/20240826045906.png',
-		value: 'AMD Ryzen 1 7800X3D ',
+		value: 'AMD Ryzen 5 7600X3Dehhhhhhhhhh ',
 		price: '5235235',
 	},
 	{
-		emoji: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png',
-		value: 'Carrots',
-		price: '456456',
+		emoji: 'https://www.logo.wine/a/logo/Nvidia/Nvidia-Logo.wine.svg',
+		value: 'NVIDIOT RTX 5090 32GB GDDR7  ',
+		price: '4564560000',
 	},
 ]
 
-function SelectOption({ emoji, value, price }: Item) {
-	return (
-		<Group>
-			<Avatar src={emoji} size={36} radius='xl' />
-			<div>
-				<Text fz='sm' fw={500}>
-					{value}
-				</Text>
-				<Text fz='xs' opacity={0.6}>
-					{formatCurrencyString(price)}
-				</Text>
-			</div>
-		</Group>
-	)
-}
-
 export function SelectOptionComponent() {
+	const { colorScheme } = useMantineColorScheme()
+	const color = colorScheme === 'light' ? 'dark' : 'light'
+	function SelectOption({ emoji, value, price }: Item) {
+		return (
+			<Group>
+				<Avatar src={emoji} size={36} radius='xl' />
+				<div>
+					<Text fz='sm' fw={500} c={color}>
+						{value}
+					</Text>
+					<Text fz='xs' opacity={0.6} c={color}>
+						{formatCurrencyString(price)}
+					</Text>
+				</div>
+			</Group>
+		)
+	}
 	const [search, setSearch] = useState('')
 	const [value, setValue] = useState<string | null>(null)
 	const combobox = useCombobox({
@@ -96,9 +98,10 @@ export function SelectOptionComponent() {
 				setValue(val)
 				combobox.closeDropdown()
 			}}>
+			{value}
 			<Combobox.Target>
 				<InputBase
-					label='Prosesor'
+					label='Ini Label'
 					component='button'
 					type='button'
 					pointer
@@ -128,7 +131,7 @@ export function SelectOptionComponent() {
 					onBlur={() => setSearch('')}
 					value={search}
 					onChange={(event) => setSearch(event.currentTarget.value)}
-					placeholder='Cari Prosesor'
+					placeholder='Cari Barang mehong'
 					ref={inputRef}
 				/>
 				<Combobox.Options>
