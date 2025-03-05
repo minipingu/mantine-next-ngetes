@@ -8,6 +8,7 @@ import {
 } from '@mantine/core'
 import { useState } from 'react'
 import { IconComponents } from '@tabler/icons-react'
+import RupiahIcon from './Rupiah'
 
 const usersData: Record<string, { image: string; email: string }> = {
 	'AMD Ryzen 9 9950x3D': {
@@ -57,8 +58,8 @@ export default function AutoComplete() {
 				radius='sm'
 				leftSectionPointerEvents='none'
 				description='Input description'
-				error='pilih dulu'
-				leftSection={icon}
+				error='ini error state'
+				leftSection={<RupiahIcon />}
 				comboboxProps={{
 					transitionProps: { transition: 'pop', duration: 200 },
 					dropdownPadding: 10,

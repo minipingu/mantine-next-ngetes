@@ -98,10 +98,11 @@ export function SelectOptionComponent() {
 				setValue(val)
 				combobox.closeDropdown()
 			}}>
-			{value}
 			<Combobox.Target>
 				<InputBase
-					label='Ini Label'
+					size={value ? 'xs' : 'lg'}
+					//error='ini state error '
+					//label='Ini Label'
 					component='button'
 					type='button'
 					pointer

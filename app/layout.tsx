@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: any }) {
 			</head>
 			<body>
 				<MantineProvider theme={theme} defaultColorScheme='auto'>
-					<Container size='xl'>{children}</Container>
+					{children}
 				</MantineProvider>
 			</body>
 		</html>

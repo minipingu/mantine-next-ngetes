@@ -32,7 +32,8 @@
     "next": "^15.2.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "recharts": "2"
+    "recharts": "2",
+    "tailwind": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "22.10.7",

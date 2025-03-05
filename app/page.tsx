@@ -1,29 +1,74 @@
-import { Box, Center, Stack } from '@mantine/core'
-import AutoComplete from './components/AutoComplete'
+import {
+	Container,
+	Grid,
+	GridCol,
+	Group,
+	Input,
+	Skeleton,
+	TextInput,
+	Title,
+	Text,
+	Select,
+} from '@mantine/core'
 import ToggleColorScheme from './components/ToggleColorScheme/ToggleColorScheme'
-import { CustomOptionSelect } from './components/CustomOptionSelect'
-import { SelectDropdownSearch } from './components/SelectDropdownSearch'
+
 import { SelectOptionComponent } from './components/SearchableSelect'
-import BuildingComboBox from './components/BuildingComboBox'
+
+import Price from './components/Price'
+const child = <Skeleton height={140} radius='md' animate />
 
 export default function Demo() {
 	return (
-		<Box c='white' p='md' fw={700}>
+		<Container py='xl' size='lg'>
 			<ToggleColorScheme />
-			<Stack align='stretch' justify='center' gap='xs'>
-				<Center>
-					This box has virtual background color, it is pink in dark mode
-					and cyan in light mode
-				</Center>
-				<AutoComplete />
+			<Text size='33px' fw={900} variant='gradient'>
+				Simulasi Rakit
+			</Text>
+			<Text mt='xs'>Mainboard</Text>
+			<Grid align='center'>
+				<GridCol span={{ base: 12, xs: 9 }}>
+					<SelectOptionComponent />
+				</GridCol>
+				<GridCol span={{ base: 4, xs: 1 }}>
+					<Input
+						styles={{ input: { textAlign: 'center' } }}
+						type='number'
+						size='lg'
+					/>
+				</GridCol>
+				<GridCol span={{ base: 8, xs: 2 }}>
+					<Price />
+				</GridCol>
+			</Grid>
+			<Text mt='xs'>Prosesor</Text>
 
-				<SelectOptionComponent />
-				<SelectOptionComponent />
-				<SelectOptionComponent />
-				<SelectOptionComponent />
-				<SelectOptionComponent />
-				<BuildingComboBox />
-			</Stack>
-		</Box>
+			<Grid align='center'>
+				<GridCol span={{ base: 12, xs: 9 }}>
+					<SelectOptionComponent />
+				</GridCol>
+				<GridCol span={{ base: 12, xs: 1 }}>
+					<Input type='number' size='lg' />
+				</GridCol>
+				<GridCol span={{ base: 12, xs: 2 }}>
+					<Price />
+				</GridCol>
+			</Grid>
+			<Grid align='center'>
+				<GridCol span={{ base: 12, xs: 9 }}>
+					<Select
+						placeholder='Pick value'
+						data={['React', 'Angular', 'Vue', 'Svelte']}
+						searchable
+						size='lg'
+					/>
+				</GridCol>
+				<GridCol span={{ base: 12, xs: 1 }}>
+					<Input type='number' size='lg' />
+				</GridCol>
+				<GridCol span={{ base: 12, xs: 2 }}>
+					<Price />
+				</GridCol>
+			</Grid>
+		</Container>
 	)
 }

@@ -73,6 +73,7 @@ export function CustomOptionSelect() {
 
 	return (
 		<Combobox
+			size={value ? 'xs' : 'lg'}
 			store={combobox}
 			withinPortal={false}
 			onOptionSubmit={(val) => {
